@@ -1,9 +1,10 @@
 # Create a function that rotates the items in an array by n steps and returns the rotated array. The function should take in an array, and how many spaces it should rotate (n).
 # Example: If your input is: ["cat", "dog", "mouse", "shoe"], 2 Your output should be: ["mouse", "shoe", "cat", "dog"]
 # If your input is: [1, 2, 3, 4, 5], 1 Your output should be: [5, 1, 2, 3, 4]
-# I cannot figure out how to solve this problem. I think it's saying to take the values in the array and move it backwards the number of spaces gives. In example 1, "Cat" is at the 0 index and moves to the back of the array and goes backward 2 spaces to become "mouse". "Dog" moves back 1 and then moves to the back and goes back 1 to become "shoe". "Mouse" moves backwards 2 spaces and becomes "cat". "Shoe" moves backwards 2 spaces and becomes "dog". 
-# For example 2, each integer is rotated by 1 step. If every integer is moves back by 1, 1 becomes 5, 2 becomes 1, 3 becomes 2, 4 becomes 3 and 5 becomes 4. Then the rotated array is [5,1,2,3,4].
-# I tried googling how to do this online. People suggested using a.push a.shift. But all that does it take the first integer and move it to the back. So [1,2,3,4,5] becomes [2,3,4,5,1]. That's obviously not the right answer. All the answers on Stack Overflow are overly complicated. Please help me!
+# Lloyd helped me. I understnd the logic behind the function now, but I still can't write the actual function. In Example 1, n or the number of steps the array will be rotated is 2. "Cat" is in the 0 position, "dog" is in the 1st position, "mouse" is in the 2nd position, and "shoe" is in the 3rd position in the array. After the array has been rotated, "mouse" is now in the 0 position, "shoe" is in the 1st position, "cat" is in the 2nd position, and "dog" is in the 3rd position. If an element's position in the array is less than 2, add 2. So "cat" will move up 2 spaces to position 2. "Dog" moves forward 2 spaces to position 3. If an element's position in the array is 2 or greater, minus 2. "Mouse", originally at position 2, moves to 0. "Shoe", originally at position 3, moves to position 1. 
+# For Example 2, the array is rotated 1 step. In the original array, 1 is in position 0, 2 is in position 1, 3 is in position 2, 4 is in position 3, and 5 is in position 4. Everything moves forward 1 step. 1 moves to position 1, 2 to position 2, 3 to position 3, and 4 to position 4. 5 has nowhere to go except back to the beginning, so it's now at position 0.
+# So the logic makes sense, but I still don't know how to write the function. 
+
 
 # Create an n factorial function. A factorial is the evaluation of n! - This number is calculated by multiplying every number from 1 to and including n.
 # If n! is defined as the product of all positive integers from 1 to n, so then:
@@ -13,7 +14,7 @@
 # 4! = 1*2*3*4 = 24
 # n! can also be expressed n*(n-1)!
 # If n=6, using n! = n*(n-1)!
-# 6! = 6(6-1)!, which is equal to 6(5)! 5! is 120 so 6(5!) is 720. 
+# 6! = 6*((6-1)!), which is equal to 6*((5)!) 5! is 120 so 6*(5!) is 720. 
 # Below is a function to express this in ruby terms:
 
 def fact(n)
@@ -24,5 +25,5 @@ def fact(n)
   end
 end
 
-print fact(0)
+print fact(6)
 # This is saying if n is 0, return 1. Otherwise, take the value of n and multiply it by the factorial of n-1, or n*(n-1)!. 
